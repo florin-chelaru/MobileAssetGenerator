@@ -166,8 +166,8 @@ namespace MobileAssetGenerator
 
       try
       {
-        var fileName = Path.GetFileName(inFilePath);
-        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(inFilePath);
+        var fileName = Path.GetFileName(inFilePath).Replace('-', '_');
+        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(inFilePath).Replace('-', '_');
         var newDir = Path.Combine(outDir, fileNameWithoutExtension);
 
         foreach (AndroidSize size in Enum.GetValues(typeof(AndroidSize)))
@@ -209,8 +209,7 @@ namespace MobileAssetGenerator
 
       try
       {
-        var fileName = Path.GetFileName(inFilePath);
-        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(inFilePath);
+        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(inFilePath).Replace('-', '_');
         var newDir = Path.Combine(outDir, fileNameWithoutExtension);
         Directory.CreateDirectory(newDir);
         var ext = new Dictionary<int, string> { { 1, "" }, { 2, "@2x" }, { 3, "@3x" } };
