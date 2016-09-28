@@ -38,12 +38,11 @@ namespace MobileAssetGenerator
           v => verbose = v != null }
       };
 
-      string file = typeof(Program).Assembly.Lo‌​cation;
+      string file = typeof(Program).Assembly.Location;
       string exe = Path.GetFileNameWithoutExtension(file);
-      List<string> extra;
       try
       {
-        extra = opts.Parse(args);
+        opts.Parse(args);
       }
       catch (OptionException e)
       {
